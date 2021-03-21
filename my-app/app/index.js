@@ -1,25 +1,15 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import Home from "./components/home/home.component";
-
+import React, { Component } from "react";
+import initStore from "./redux/store";
+import { Provider } from "react-redux";
+import App from "./App.container";
 class NoteTaker extends Component {
-    render() {
-     //   const {...extraProps} = this.props;
-      //  console.log(this.props);
-      //  console.log(extraProps);
-        return (
-            <Home/>
-        )
-    }
+  render() {
+    return (
+      <Provider store={initStore}>
+        <App />
+      </Provider>
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF'
-    }
-})
 
 export default NoteTaker;

@@ -4,21 +4,26 @@ import PropTypes from "prop-types";
 import style from "./textArea.component.style";
 
 class TextArea extends Component {
-  state = {
-    text: "",
-  };
+  // static propTypes = {
+  //   text: PropTypes.string,
+  //   onTextChange: PropTypes.func,
+  // };
   render() {
-    const { ...extraProps } = this.props;
+    const { text, onTextChange, ...extraProps } = this.props;
+    //  console.log({ onTextChange });
     return (
       <TextInput
-        {...extraProps}
+        // {...extraProps}
         style={[style.textArea, extraProps.style]}
         multiline={true}
-        onChangeText={(text) => {
-          this.setState({ text });
-          console.log(this.state);
-        }}
-        value={this.state.text}
+        onChangeText={onTextChange}
+        value={text}
+        // onChangeText={(text) => {
+        //   this.setState({ text });
+        //   extraProps.parentCallback(text.length);
+        //   console.log(this.state);
+        // }}
+        // value={this.state.text}
       />
     );
   }
